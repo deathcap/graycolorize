@@ -1,0 +1,6 @@
+# graycolor
+
+## License
+
+MIT
+
