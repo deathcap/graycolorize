@@ -10,8 +10,12 @@
     "voxel"
   ],
   "dependencies": {
+    "cwise": "~0.4.0"
   },
-  "peerDependencies": {
-  },
-  "license": "MIT"
+  "peerDependencies": {},
+  "license": "MIT",
+  "devDependencies": {
+    "get-pixels": "~1.0.1",
+    "ndarray": "~1.0.10"
+  }
 }
