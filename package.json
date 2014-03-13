@@ -1,13 +1,15 @@
 {
   "name": "graycolorize",
-  "description": "",
+  "description": "replace grayscale with color from a colormap",
   "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:deathcap/graycolorize.git"
   },
   "keywords": [
-    "voxel"
+    "color",
+    "grayscale",
+    "ndarray"
   ],
   "dependencies": {
     "cwise": "~0.4.0"
