@@ -21,10 +21,10 @@ getPixels(vines, function(err, pixels) {
 
   var colormap = ndarray(new Uint8Array(256*4), [256,4]);
 
-  colormap.set(113, 0, 66);
-  colormap.set(113, 1, 127);
-  colormap.set(113, 2, 19);
-  colormap.set(113, 3, 255);
+  colormap.set(0x71, 0, 0x42);
+  colormap.set(0x71, 1, 0x7f);
+  colormap.set(0x71, 2, 0x13);
+  colormap.set(0x71, 3, 0xff);
 
   graycolorize(pixels, colormap);
 
