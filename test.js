@@ -2,6 +2,7 @@
 
 var graycolorize = require('./');
 var ndarray = require('ndarray');
+var test = require('tape');
 
 var pixels = ndarray(new Uint8Array(16*16*4), [16,16,4]);
 
@@ -35,4 +36,21 @@ colors.set(192, 3, 255);
 console.log(pixels);
 graycolorize(pixels, colors);
 console.log(pixels);
-// TODO: turn into unit tests
+
+test('unchanged no colormap', function(t) {
+  t.equal(pixels.get(15, 15, 0), 128);
+  t.equal(pixels.get(15, 15, 1), 128);
+  t.equal(pixels.get(15, 15, 2), 128);
+  t.equal(pixels.get(15, 15, 3), 255);
+  t.end();
+});
+
+test('colorized index 192', function(t) {
+  t.equal(pixels.get(15, 14, 0), 11);
+  t.equal(pixels.get(15, 14, 1), 22);
+  t.equal(pixels.get(15, 14, 2), 33);
+  t.equal(pixels.get(15, 14, 3), 255);
+  t.end();
+});
+
+// TODO: check 0
