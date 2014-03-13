@@ -19,6 +19,7 @@
     "test": "node test.js"
   },
   "devDependencies": {
+    "save-pixels": "~0.3.0",
     "get-pixels": "~1.0.1",
     "ndarray": "~1.0.10"
   }
