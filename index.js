@@ -29,14 +29,16 @@ module.exports = function(pixels, colors) {
       var b = pixels.get(i, j, 2);
       var a = pixels.get(i, j, 3);
 
-      if (r === g && g === b) {
-        // grayscale index
+      if (r === g && g === b) { // grayscale index
         var index = r;
 
-        pixels.set(i, j, 0, colors.get(index, 0));
-        pixels.set(i, j, 1, colors.get(index, 1));
-        pixels.set(i, j, 2, colors.get(index, 2));
-        pixels.set(i, j, 3, colors.get(index, 3));
+        if (colors.get(index, 3) !== 0) { // only replace if replacement alpha set
+          // replace with color at given index
+          pixels.set(i, j, 0, colors.get(index, 0));
+          pixels.set(i, j, 1, colors.get(index, 1));
+          pixels.set(i, j, 2, colors.get(index, 2));
+          pixels.set(i, j, 3, colors.get(index, 3));
+        }
       }
     }
   }
