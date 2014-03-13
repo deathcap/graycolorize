@@ -1,6 +1,6 @@
 'use strict';
 
-var graycolor = require('./');
+var graycolorize = require('./');
 var ndarray = require('ndarray');
 
 var pixels = ndarray(new Uint8Array(16*16*4), [16,16,4]);
@@ -33,5 +33,6 @@ colors.set(192, 2, 33);
 colors.set(192, 3, 255);
 
 console.log(pixels);
-graycolor(pixels, colors);
+graycolorize(pixels, colors);
 console.log(pixels);
+// TODO: turn into unit tests
