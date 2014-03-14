@@ -63,7 +63,7 @@ var graycolorize = function(pixels, colors) {
       var b = pixels.get(i, j, 2);
       var a = pixels.get(i, j, 3);
 
-      if (r === g && g === b) { // grayscale index
+      if (r === g && g === b && a !== 0) { // grayscale index, nonzero alpha
         var index = r;
 
         if (colors.get(index, 3) !== 0) { // only replace if replacement alpha set
