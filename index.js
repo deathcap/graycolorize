@@ -1,6 +1,7 @@
 'use strict';
 
 var color = require('onecolor');
+var ndarray = require('ndarray');
 
 /* TODO
 var cwise = require('cwise');
@@ -25,6 +26,8 @@ var scale = function(x, fromLow, fromHigh, toLow, toHigh) {
 };
 
 var generateMap = function(hue, saturation, minBrightness, maxBrightness) {
+  var colors = ndarray(new Uint8Array(256*4), [256,4]);
+  
   if (minBrightness === undefined) minBrightness = 0.0;
   if (maxBrightness === undefined) maxBrightness = 1.0;
 
@@ -36,13 +39,18 @@ var generateMap = function(hue, saturation, minBrightness, maxBrightness) {
     var r = Math.round(c.red() * 255);
     var g = Math.round(c.green() * 255);
     var b = Math.round(c.blue() * 255);
+    var a = 255;
 
-    //console.log(r, g, b);
-    console.log(r,g,b,'<div style="width: 50px; height: 10px; background-color: '+c.hex()+'"></div><br>');
+    colors.set(i, 0, r);
+    colors.set(i, 1, g);
+    colors.set(i, 2, b);
+    colors.set(i, 3, a);
+
+    //console.log(i,'=',r,g,b,'<div style="width: 50px; height: 10px; background-color: '+c.hex()+'"></div><br>');
   }
-}
 
-generateMap(0.25 /* 90deg(/360), green-yellow */, 0.5, 0.3, 1.0);
+  return colors;
+}
 
 var graycolorize = function(pixels, colors) {
   var height = pixels.shape[0];
@@ -71,4 +79,4 @@ var graycolorize = function(pixels, colors) {
 };
 
 module.exports = graycolorize;
-
+module.exports.generateMap = generateMap;

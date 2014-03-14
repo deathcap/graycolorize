@@ -19,12 +19,18 @@ document.body.appendChild(origImg);
 
 getPixels(vines, function(err, pixels) {
 
+  /*
   var colormap = ndarray(new Uint8Array(256*4), [256,4]);
 
   colormap.set(0x71, 0, 0x42);
   colormap.set(0x71, 1, 0x7f);
   colormap.set(0x71, 2, 0x13);
   colormap.set(0x71, 3, 0xff);
+  */
+
+  colormap = graycolorize.generateMap(0.25 /* 90deg(/360), green-yellow */, 0.5, 0.3, 1.0);
+  //colormap = generateMap(0.25 /* 90deg(/360), green-yellow */, 0.5);
+  console.log('colormap=',colormap);
 
   graycolorize(pixels, colormap);
 
