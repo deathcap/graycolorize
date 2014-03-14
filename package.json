@@ -12,7 +12,8 @@
     "ndarray"
   ],
   "dependencies": {
-    "cwise": "~0.4.0"
+    "cwise": "~0.4.0",
+    "onecolor": "~2.4.0"
   },
   "peerDependencies": {},
   "license": "MIT",

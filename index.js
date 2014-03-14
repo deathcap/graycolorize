@@ -1,5 +1,7 @@
 'use strict';
 
+var color = require('onecolor');
+
 /* TODO
 var cwise = require('cwise');
 
@@ -18,7 +20,23 @@ var applyColor = cwise({
 });
 */
 
-module.exports = function(pixels, colors) {
+var generateMap = function(hue, saturation) {
+  for (var i = 0; i < 256; i += 1) {
+    var brightness = i / 255.0;
+    var c = new color.HSV(hue, saturation, brightness).rgb();
+
+    var r = Math.round(c.red() * 255);
+    var g = Math.round(c.green() * 255);
+    var b = Math.round(c.blue() * 255);
+
+    //console.log(r, g, b);
+    console.log(r,g,b,'<div style="width: 50px; height: 10px; background-color: '+c.hex()+'"></div><br>');
+  }
+}
+
+generateMap(0.25 /* 90deg(/360), green-yellow */, 0.5);
+
+var graycolorize = function(pixels, colors) {
   var height = pixels.shape[0];
   var width = pixels.shape[1];
 
@@ -43,3 +61,6 @@ module.exports = function(pixels, colors) {
     }
   }
 };
+
+module.exports = graycolorize;
+
