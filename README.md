@@ -2,7 +2,7 @@
 
 Replace grayscale with color from a colormap
 
-![![Build Status](https://travis-ci.org/deathcap/graycolorize.png)](https://travis-ci.org/deathcap/graycolorize)
+[![Build Status](https://travis-ci.org/deathcap/graycolorize.png)](https://travis-ci.org/deathcap/graycolorize)
 
 Usage:
 
