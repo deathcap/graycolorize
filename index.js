@@ -20,9 +20,17 @@ var applyColor = cwise({
 });
 */
 
-var generateMap = function(hue, saturation) {
+var scale = function(x, fromLow, fromHigh, toLow, toHigh) {
+  return (x - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;
+};
+
+var generateMap = function(hue, saturation, minBrightness, maxBrightness) {
+  if (minBrightness === undefined) minBrightness = 0.0;
+  if (maxBrightness === undefined) maxBrightness = 1.0;
+
   for (var i = 0; i < 256; i += 1) {
-    var brightness = i / 255.0;
+    var brightness = scale(i / 255.0, 0.0, 1.0, minBrightness, maxBrightness);
+
     var c = new color.HSV(hue, saturation, brightness).rgb();
 
     var r = Math.round(c.red() * 255);
@@ -34,7 +42,7 @@ var generateMap = function(hue, saturation) {
   }
 }
 
-generateMap(0.25 /* 90deg(/360), green-yellow */, 0.5);
+generateMap(0.25 /* 90deg(/360), green-yellow */, 0.5, 0.3, 1.0);
 
 var graycolorize = function(pixels, colors) {
   var height = pixels.shape[0];
