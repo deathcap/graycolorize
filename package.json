@@ -23,9 +23,10 @@
     "test": "node test.js"
   },
   "devDependencies": {
-    "save-pixels": "~0.3.0",
+    "browserify": "^13.0.1",
     "get-pixels": "^1.0.1",
     "ndarray": "^1.0.10",
+    "save-pixels": "~0.3.0",
     "tape": "^2.10.2"
   }
 }
