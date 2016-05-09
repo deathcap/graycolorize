@@ -12,7 +12,7 @@
     "ndarray"
   ],
   "dependencies": {
-    "cwise": "~0.4.0",
+    "cwise": "^1.0.9",
     "onecolor": "^2.4.0",
     "ndarray": "^1.0.10"
   },
